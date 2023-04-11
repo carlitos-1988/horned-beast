@@ -4,7 +4,8 @@ import animals from "./HornedAnimals";
 
 function createAnimals(animals){
     return(
-        <HornedBeast className="myAnimal"
+        <HornedBeast 
+        className="myAnimal"
         key = {animals._id}
         imageSRC ={animals.image_url}
         altName = {animals.keyword}

@@ -1,31 +1,54 @@
 import React from "react";
+import { SuitHeartFill } from "react-bootstrap-icons";
+import {Container} from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 class HornedBeast extends React.Component{
 
+
     
-//SECTION: Constructor and handle click are being used for event hlading
+//SECTION: Constructor and handle click are being used for event handleing
     constructor(props){
         super(props);
         this.state = {
-            status:"Nay"
+            status:"Nay",
+            count:0
         }
     }
 
     handleClick = () =>{
-        const newStatus  = this.state.status === "Nay" ? "Yay" : "Nay"
+        const newStatus  = this.state.status === "Nay" ? "Yay" : "Keep Going";
+        const newCount = this.state.count + 1;
+        
         this.setState({
-            status: newStatus
+            status: newStatus,
+            count: newCount
+        
+            
         })
     }
 
     render(){
         return (
-            <div onClick={this.handleClick} >
-            <title><h2>Tile {this.props.title}</h2></title>
-            <img src = {this.props.imageSRC}  alt={this.props.altName} width="700" height="600" ></img>
-            <p>Description: {this.props.description}</p>
-            <p>number of horns: {this.props.horns}</p>
-            <p>{this.state.status}</p>
+            <div className="myCard">
+            <Container bg="Dark">
+            <Card style={{ width: '25rem' }} className="text-center" bg="dark" text="white">
+                <Card.Img src={this.props.imageSRC} />
+                <Card.Header as="h5">{this.props.title}</Card.Header>
+                <Card.Body >
+                
+                
+                <Card.Text>Description: {this.props.description}</Card.Text>
+                <Card.Text>Number of horns: {this.props.horns}</Card.Text>
+                <Card.Text>{this.state.status}</Card.Text>
+                <Card.Text>Click Button Below to Favorite:</Card.Text>
+                
+                <Button onClick={this.handleClick}>Times Favorited: {this.state.count}</Button> 
+                <SuitHeartFill></SuitHeartFill>
+                </Card.Body>    
+            </Card>
+            </Container>
             </div>
         )
     }

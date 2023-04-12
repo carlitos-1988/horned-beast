@@ -1,7 +1,11 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   background-color: #61dafb;
   font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .App-logo {
@@ -24,20 +28,14 @@
   font-size: calc(5px + 2vmin);
   color: white;
   padding-bottom: 20px;
+  width: 100%;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
 
 img{
   border-radius: 30px;
@@ -50,4 +48,8 @@ img{
   align-items: center;
   justify-content: center;
   opacity: 50%;
+}
+
+myCard{
+  background: #395489;
 }

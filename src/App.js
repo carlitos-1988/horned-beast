@@ -3,13 +3,16 @@ import "./App.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Main from "./Components/Main";
+import dataBeast from "./jsonListAnimals.json";
+
+const creator = "Juan Olmedo"
 
 function App() {
   return (
     <div className="App">
-      <Header creator={"Juan Olmedo"}> </Header>
-      <Main />
-      <Footer creator={"Juan Olmedo"}></Footer>
+      <Header creator={creator}> </Header>
+      <Main jsonData ={dataBeast}/>
+      <Footer creator={creator}></Footer>
     </div>
   );
 }

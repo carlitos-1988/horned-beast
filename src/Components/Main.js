@@ -1,9 +1,10 @@
 import React from "react";
 import HornedBeast from "./HornedBeast";
-import animals from "./HornedAnimals";
+
 
 function createAnimals(animals) {
-  return (
+  
+    return (
     <HornedBeast
       className="myAnimal"
       key={animals._id}
@@ -12,13 +13,21 @@ function createAnimals(animals) {
       title={animals.title}
       description={animals.description}
       horns={animals.horns}
+      data = {animals.title}
     />
   );
 }
 
+
 class Main extends React.Component {
   render() {
-    return <div>{animals.map(createAnimals)}</div>;
+
+    const dataForBeasts = this.props.jsonData;
+
+    return (
+    <div> 
+    {dataForBeasts.map(createAnimals)}   
+    </div>);
   }
 }
 

@@ -7,8 +7,8 @@ Estimate of time needed to complete: __3hours__LabClass02_
 
 Start time: 1250
 
-Finish time: _____
+Finish time: _1800____
 
-Actual time needed to complete: _____
+Actual time needed to complete: __5 hours___
 
 ## 

@@ -3,18 +3,13 @@ import { SuitHeartFill } from "react-bootstrap-icons";
 import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import ShowModal from "./SelectedBeast";
-import SelectedBeast from "./SelectedBeast";
-
 
 class HornedBeast extends React.Component {
-  //SECTION: Constructor and handle click are being used for event handling
   constructor(props) {
     super(props);
     this.state = {
       status: "Nay",
       count: 0,
-      modalShow: false,
     };
   }
 
@@ -28,20 +23,10 @@ class HornedBeast extends React.Component {
     });
   };
 
-  //SECTION: Sets modal toggle
-  setModalShow(value){
-    this.setState({
-        modalShow:value
-    });
-}
-  
-
-  hideTheModal = () =>{
-    const newStatus = false;
-    this.setState({
-        modalShow: newStatus
-    })
-  }
+  //NOTE: prop passed from Main handleprop attribute
+  handleClick = () => {
+    this.props.handleOpen();
+  };
 
   render() {
     return (
@@ -53,7 +38,12 @@ class HornedBeast extends React.Component {
             bg="dark"
             text="white"
           >
-            <Card.Img src={this.props.imageSRC} variant="primary" onClick={this.props.handleOpen} />
+            <Card.Img
+              src={this.props.imageSRC}
+              variant="primary"
+              //click event for modal
+              onClick={this.handleClick}
+            />
             <Card.Header as="h5">{this.props.title}</Card.Header>
             <Card.Body>
               <Card.Text>Description: {this.props.description}</Card.Text>
@@ -65,14 +55,9 @@ class HornedBeast extends React.Component {
                 Times Favorited: {this.state.count}
               </Button>
               <SuitHeartFill></SuitHeartFill>
-              <p>{this.props.showTheModal + " "}</p>
-              <p>{this.props.closeTheModal + " "}</p>
             </Card.Body>
           </Card>
         </Container>
-
-        {/* <SelectedBeast show={modalShow} onHide={this.setModalShow(false)}  /> */}
-
       </div>
     );
   }

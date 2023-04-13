@@ -8,15 +8,42 @@ import {Modal} from 'react-bootstrap/Modal';
 
 const creator = "Juan Olmedo"
 
-function App() {
-  const [modalShow, setModalShow] = React.useState(false);
-  return (
-    <div className="App">
-      <Header creator={creator}> </Header>
-      <Main jsonData ={dataBeast} modalShow={modalShow} setModalShow={setModalShow}/>
-      <Footer creator={creator}></Footer>
-    </div>
-  );
+class App extends React.Component{
+  
+  // setModalShow = (argumentTest)=>{
+  //   console.log("It works!");
+  // }
+
+  
+
+  render(){
+    return(
+          <div className="App">
+            <Header creator={creator}> </Header>
+            <Main jsonData ={dataBeast} 
+            //modalShow={modalShow}
+            setModalShow={this.setModalShow}
+            />
+            <Footer creator={creator}></Footer>
+          </div>)
+  }
 }
+
+//function App() {
+  //const [modalShow, setModalShow] = React.useState(false);
+  
+
+
+//   return (
+//     <div className="App">
+//       <Header creator={creator}> </Header>
+//       <Main jsonData ={dataBeast} 
+//       //modalShow={modalShow}
+//       setModalShow={setModalShow}
+//       />
+//       <Footer creator={creator}></Footer>
+//     </div>
+//   );
+// }
 
 export default App;

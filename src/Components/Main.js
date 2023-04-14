@@ -12,7 +12,8 @@ class Main extends React.Component {
       showModal: false,
       //NOTE: selected beast for object reference
       selectedBeast: null,
-      dataForBeasts:dataBeast
+      dataForBeasts: dataBeast,
+      myChageableBeasts: dataBeast,
     };
   }
 
@@ -28,28 +29,47 @@ class Main extends React.Component {
     });
   };
 
+  resetJsonData = () =>{
+    //console.log(this.state.myChageableBeasts)
+    // let myLocalUnchageable = this.state.myChageableBeasts;
+    this.setState({
+      dataForBeasts:dataBeast
+    })
+  }
+
   handleFormChange = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    //this.resetJsonData();
+    //console.log("my handle change local data" + this.state.dataForBeasts);
+
     const filterAnimal = Number(event.target.value);
 
-    // function filterMyBeasts(horns){
-    //   return horns === 
-    // }
-
-    let filteredBeasts = this.state.dataForBeasts.filter(beast => beast.horns === filterAnimal);
-    console.log(typeof filterAnimal);
-    console.log(filteredBeasts);
+    let filteredBeasts;
+    if(Number(event.target.value) === -1) {
+      //console.log("Made it here");
+      filteredBeasts = dataBeast;
+      
+    }else{
+     // console.log("also made it here");
+      filteredBeasts = this.state.myChageableBeasts.filter(beast => beast.horns === filterAnimal);
+    };
+    // console.log(typeof filterAnimal);
+    // console.log(filteredBeasts);
     this.setState({dataForBeasts: filteredBeasts});
   }
 
+
+
+
   render() {
-    // const dataForBeasts = this.props.jsonData;
     return (
       <main>
 
         {
-          <AnimalForm changeDisplayHandler={this.handleFormChange}/>
+          <AnimalForm 
+          changeDisplayHandler={ this.handleFormChange}
+
+          />
         }
         {this.state.dataForBeasts.map((createdAnimals) => (
           <HornedBeast

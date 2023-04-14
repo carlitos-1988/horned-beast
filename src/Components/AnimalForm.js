@@ -8,7 +8,7 @@ class AnimalForm extends Component{
             <Form>
             <Form.Label>Search By Horns </Form.Label>
                 <Form.Select className="mb-3" onChange={this.props.changeDisplayHandler}>
-                    <option>Select Horn Quantity</option>
+                    <option value ="-1">Select Horn Quantity</option>
                     <option value="1">One Horn</option>
                     <option value="2">Two Horns</option>
                     <option value="3">Three Horns</option>

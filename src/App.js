@@ -3,24 +3,26 @@ import "./App.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Main from "./Components/Main";
-import dataBeast from "./jsonListAnimals.json";
-import {Modal} from 'react-bootstrap/Modal';
+// import dataBeast from "./jsonListAnimals.json";
 
 const creator = "Juan Olmedo"
 
-class App extends React.Component{
-  
-  // setModalShow = (argumentTest)=>{
-  //   console.log("It works!");
-  // }
+// const myAnimalsAtApp = dataBeast;
 
-  
+class App extends React.Component{
+
+  // constructor(props){
+  //   super(props);
+  //   this.state ={
+  //     appBeast:myAnimalsAtApp
+  //   }
+  // }
 
   render(){
     return(
           <div className="App">
             <Header creator={creator}> </Header>
-            <Main jsonData ={dataBeast} 
+            <Main 
             //modalShow={modalShow}
             setModalShow={this.setModalShow}
             />
@@ -28,22 +30,5 @@ class App extends React.Component{
           </div>)
   }
 }
-
-//function App() {
-  //const [modalShow, setModalShow] = React.useState(false);
-  
-
-
-//   return (
-//     <div className="App">
-//       <Header creator={creator}> </Header>
-//       <Main jsonData ={dataBeast} 
-//       //modalShow={modalShow}
-//       setModalShow={setModalShow}
-//       />
-//       <Footer creator={creator}></Footer>
-//     </div>
-//   );
-// }
 
 export default App;

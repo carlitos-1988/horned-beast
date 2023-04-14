@@ -1,6 +1,8 @@
 import React from "react";
 import HornedBeast from "./HornedBeast";
 import SelectedBeast from "./SelectedBeast";
+import AnimalForm from "./AnimalForm";
+import dataBeast from "./jsonListAnimals.json";
 
 class Main extends React.Component {
   //NOTE: constructor with props passed to initiate state
@@ -10,6 +12,7 @@ class Main extends React.Component {
       showModal: false,
       //NOTE: selected beast for object reference
       selectedBeast: null,
+      dataForBeasts:dataBeast
     };
   }
 
@@ -25,11 +28,30 @@ class Main extends React.Component {
     });
   };
 
+  handleFormChange = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    const filterAnimal = Number(event.target.value);
+
+    // function filterMyBeasts(horns){
+    //   return horns === 
+    // }
+
+    let filteredBeasts = this.state.dataForBeasts.filter(beast => beast.horns === filterAnimal);
+    console.log(typeof filterAnimal);
+    console.log(filteredBeasts);
+    this.setState({dataForBeasts: filteredBeasts});
+  }
+
   render() {
-    const dataForBeasts = this.props.jsonData;
+    // const dataForBeasts = this.props.jsonData;
     return (
       <main>
-        {dataForBeasts.map((createdAnimals) => (
+
+        {
+          <AnimalForm changeDisplayHandler={this.handleFormChange}/>
+        }
+        {this.state.dataForBeasts.map((createdAnimals) => (
           <HornedBeast
             className="myAnimal"
             key={createdAnimals._id}
